@@ -11,13 +11,6 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 function App() {
-  const [serverStatus, setServerStatus] = useState({
-    version: "1.21.5",
-    support: "Java Dan Bedrock",
-    status: "Offline",
-    playersOnline: 0
-  });
-
   const testConnection = async () => {
     try {
       const response = await axios.get(`${API}/`);
@@ -34,7 +27,7 @@ function App() {
   return (
     <div className="App min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       <Hero />
-      <ServerInfo serverStatus={serverStatus} />
+      <ServerInfo />
       <GameModes />
       <Gallery />
       <Footer />
