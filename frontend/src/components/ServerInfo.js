@@ -1,6 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import ServerStatus from "./ServerStatus";
 
-const ServerInfo = ({ serverStatus }) => {
+const ServerInfo = () => {
+  const [serverStatus, setServerStatus] = useState({
+    version: "1.21.5",
+    support: "Java Dan Bedrock",
+    status: "Offline",
+    playersOnline: 0
+  });
+
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  const API = `${BACKEND_URL}/api`;
+
+  const fetchServerStatus = async () => {
+    try {
+      const response = await axios.get(`${API}/server-status`);
+      setServerStatus({
+        version: response.data.version || "1.21.5",
+        support: "Java Dan Bedrock",
+        status: response.data.status === 'online' ? 'Online' : 'Offline',
+        playersOnline: response.data.players_online || 0
+      });
+    } catch (error) {
+      console.error('Failed to fetch server status:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchServerStatus();
+    // Refresh every 30 seconds
+    const interval = setInterval(fetchServerStatus, 30000);
+    return () => clearInterval(interval);
+  }, []);
   const infoCards = [
     {
       icon: "🎯",
