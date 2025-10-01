@@ -1,0 +1,79 @@
+import React from "react";
+
+const ServerInfo = ({ serverStatus }) => {
+  const infoCards = [
+    {
+      icon: "🎯",
+      label: "Versi",
+      value: serverStatus.version,
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
+      icon: "⚙️", 
+      label: "Support",
+      value: serverStatus.support,
+      color: "from-purple-500 to-pink-500"
+    },
+    {
+      icon: "🔹",
+      label: "Status",
+      value: serverStatus.status,
+      color: serverStatus.status === "Online" ? "from-green-500 to-emerald-500" : "from-red-500 to-rose-500"
+    },
+    {
+      icon: "👥",
+      label: "Pemain Online", 
+      value: `${serverStatus.playersOnline} Pemain`,
+      color: "from-orange-500 to-yellow-500"
+    }
+  ];
+
+  return (
+    <div className="py-20 px-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+            🎮 Mannuruki Server
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {infoCards.map((card, index) => (
+            <div 
+              key={index}
+              className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden"
+            >
+              {/* Gradient Background */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+              
+              <div className="relative p-6 text-center">
+                <div className="text-4xl mb-3 transform group-hover:scale-110 transition-transform duration-300">
+                  {card.icon}
+                </div>
+                <h3 className="font-semibold text-gray-600 mb-2 text-sm uppercase tracking-wider">
+                  {card.label}
+                </h3>
+                <p className="text-xl font-bold text-gray-800">
+                  {card.value}
+                </p>
+                
+                {/* Status Indicator */}
+                {card.label === "Status" && (
+                  <div className="flex items-center justify-center mt-2">
+                    <div className={`w-2 h-2 rounded-full ${card.value === "Online" ? "bg-green-500 animate-pulse" : "bg-red-500"} mr-2`}></div>
+                    <span className={`text-sm font-medium ${card.value === "Online" ? "text-green-600" : "text-red-600"}`}>
+                      {card.value === "Online" ? "Aktif" : "❌"}
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ServerInfo;
