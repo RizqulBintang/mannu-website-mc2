@@ -5,7 +5,7 @@ const GameModes = () => {
     {
       title: "Survival",
       icon: "⚔️",
-      image: "https://bintanglima.my.id/images/survival.png",
+      image: "https://images.unsplash.com/photo-1524685794168-52985e79c1f8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxtaW5lY3JhZnR8ZW58MHx8fHwxNzU5MzIwNTYyfDA&ixlib=rb-4.1.0&q=85",
       description: "Minecraft Survival adalah mode permainan di Minecraft di mana pemain harus bertahan hidup dengan mengumpulkan sumber daya, membangun tempat tinggal, dan melawan monster (mobs). Pemain memulai dengan tanpa perlengkapan dan harus mencari makanan, kayu, serta bahan lainnya untuk bertahan.",
       gradient: "from-green-500 to-emerald-600",
       bgColor: "bg-green-50"
@@ -13,7 +13,7 @@ const GameModes = () => {
     {
       title: "Creative",
       icon: "🎨",
-      image: "https://bintanglima.my.id/images/creative.png", 
+      image: "https://images.unsplash.com/photo-1697479670670-d2a299df749c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwyfHxtaW5lY3JhZnR8ZW58MHx8fHwxNzU5MzIwNTYyfDA&ixlib=rb-4.1.0&q=85", 
       description: "Minecraft Creative adalah mode permainan di Minecraft yang berfokus pada kebebasan membangun tanpa batasan sumber daya atau ancaman musuh. Pemain memiliki akses ke semua blok dan item serta bisa terbang untuk membangun dengan lebih mudah.",
       gradient: "from-purple-500 to-pink-600",
       bgColor: "bg-purple-50"
@@ -21,7 +21,7 @@ const GameModes = () => {
     {
       title: "Minigames",
       icon: "🏆",
-      image: "https://bintanglima.my.id/images/minigames.png",
+      image: "https://images.unsplash.com/photo-1639762681057-408e52192e55?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHw0fHxtaW5lY3JhZnR8ZW58MHx8fHwxNzU5MzIxNTYyfDA&ixlib=rb-4.1.0&q=85",
       description: "Minecraft Minigames adalah mode permainan di Minecraft yang berisi berbagai game kecil (mini-games) dengan aturan unik, biasanya dimainkan di server multiplayer. Mode ini lebih kompetitif dan sering kali memiliki sistem skor atau eliminasi.",
       gradient: "from-blue-500 to-cyan-600",
       bgColor: "bg-blue-50"
