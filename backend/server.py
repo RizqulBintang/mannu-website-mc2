@@ -52,6 +52,76 @@ async def get_status_checks():
     status_checks = await db.status_checks.find().to_list(1000)
     return [StatusCheck(**status_check) for status_check in status_checks]
 
+@api_router.get("/server-info")
+async def get_server_info():
+    """Get Mannuruki Server information"""
+    return {
+        "server_name": "Mannuruki Server",
+        "version": "1.21.5",
+        "support": "Java Dan Bedrock", 
+        "status": "offline",
+        "players_online": 0,
+        "max_players": 100,
+        "motd": "Server Minecraft terbaik dengan komunitas yang ramah!",
+        "map_url": "https://map.bintanglima.my.id/"
+    }
+
+@api_router.get("/gallery")
+async def get_gallery():
+    """Get server gallery images"""
+    return {
+        "images": [
+            {
+                "id": 1,
+                "src": "https://bintanglima.my.id/images/ss1.webp",
+                "title": "Server Overview",
+                "alt": "Screenshot 1 - Server Overview"
+            },
+            {
+                "id": 2,
+                "src": "https://bintanglima.my.id/images/ss2.webp", 
+                "title": "Survival World",
+                "alt": "Screenshot 2 - Survival World"
+            },
+            {
+                "id": 3,
+                "src": "https://bintanglima.my.id/images/ss3.webp",
+                "title": "Creative Builds", 
+                "alt": "Screenshot 3 - Creative Builds"
+            },
+            {
+                "id": 4,
+                "src": "https://bintanglima.my.id/images/ss4.webp",
+                "title": "Minigames Arena",
+                "alt": "Screenshot 4 - Minigames Arena"
+            },
+            {
+                "id": 5,
+                "src": "https://bintanglima.my.id/images/ss5.webp",
+                "title": "Community Area", 
+                "alt": "Screenshot 5 - Community Area"
+            },
+            {
+                "id": 6,
+                "src": "https://bintanglima.my.id/images/ss6.webp",
+                "title": "Adventure Zone",
+                "alt": "Screenshot 6 - Adventure Zone" 
+            },
+            {
+                "id": 7,
+                "src": "https://bintanglima.my.id/images/ss7.webp",
+                "title": "PvP Arena",
+                "alt": "Screenshot 7 - PvP Arena"
+            },
+            {
+                "id": 8,
+                "src": "https://bintanglima.my.id/images/ss8.webp", 
+                "title": "Special Events",
+                "alt": "Screenshot 8 - Special Events"
+            }
+        ]
+    }
+
 # Include the router in the main app
 app.include_router(api_router)
 
