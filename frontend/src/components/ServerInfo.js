@@ -70,6 +70,11 @@ const ServerInfo = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
         </div>
         
+        {/* Real-time Server Status Widget */}
+        <div className="mb-12">
+          <ServerStatus />
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {infoCards.map((card, index) => (
             <div 
