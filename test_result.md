@@ -101,3 +101,74 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "User meminta bantuan untuk memperbaiki website Mannuruki Server (https://bintanglima.my.id/) agar lebih clean, modern, dan fast. User memilih: 1) Modern UI components dengan buttons, animations, gradients, 2) Buat versi baru dengan React/FastAPI, 3) Tambahkan gallery dengan lightbox untuk screenshots, 4) Light theme yang clean. Website ini adalah untuk server Minecraft dengan konten: info server, game modes (Survival, Creative, Minigames), dan galeri screenshots."
+
+backend:
+  - task: "Setup FastAPI backend for Mannuruki Server data"
+    implemented: false
+    working: "NA"
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Need to create API endpoints for server info and gallery data"
+
+frontend:
+  - task: "Create modern Mannuruki Server website with React"
+    implemented: false
+    working: "NA"
+    file: "/app/frontend/src/App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Need to implement clean light theme with modern UI components"
+
+  - task: "Implement gallery with lightbox for screenshots"
+    implemented: false
+    working: "NA"
+    file: "/app/frontend/src/components/Gallery.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Need to create interactive gallery component for server screenshots"
+
+  - task: "Add modern UI components and animations"
+    implemented: false
+    working: "NA"
+    file: "/app/frontend/src/components/"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Need modern buttons, cards, gradients, and smooth animations"
+
+metadata:
+  created_by: "main_agent"
+  version: "1.0"
+  test_sequence: 0
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "Create modern Mannuruki Server website with React"
+    - "Implement gallery with lightbox for screenshots"
+    - "Add modern UI components and animations"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+  - agent: "main"
+    message: "Starting redesign of Mannuruki Server website with modern React components, light theme, and gallery lightbox"
