@@ -243,3 +243,5 @@ agent_communication:
     message: "Starting redesign of Mannuruki Server website with modern React components, light theme, and gallery lightbox"
   - agent: "testing"
     message: "✅ COMPREHENSIVE TESTING COMPLETED! All features working excellently. The Mannuruki Server website is a beautiful, modern implementation with perfect functionality across all requested features: hero section, server info cards, game modes, gallery lightbox, responsive design, animations, and external links. Ready for production!"
+  - agent: "main"
+    message: "✅ IMAGES UPDATED! Replaced generic game mode images with proper Minecraft-themed images: Steve character for Survival, colorful Minecraft blocks for Creative, and 3D cube structure for Minigames. All images now match the Minecraft theme perfectly!"
