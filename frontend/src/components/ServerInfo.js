@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ServerStatus from "./ServerStatus";
+import { getApiBase } from "../lib/api";
 
 const ServerInfo = () => {
   const [serverStatus, setServerStatus] = useState({
@@ -10,12 +11,11 @@ const ServerInfo = () => {
     playersOnline: 0
   });
 
-  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-  const API = `${BACKEND_URL}/api`;
+  const API_BASE = getApiBase();
 
   const fetchServerStatus = async () => {
     try {
-      const response = await axios.get(`${API}/server-status`);
+      const response = await axios.get(`${API_BASE}/server-status`);
       setServerStatus({
         version: response.data.version || "1.21.5",
         support: "Java Dan Bedrock",
@@ -24,6 +24,13 @@ const ServerInfo = () => {
       });
     } catch (error) {
       console.error('Failed to fetch server status:', error);
+      console.info('API base attempted:', API_BASE);
+      if (!process.env.REACT_APP_BACKEND_URL) {
+        console.warn(
+          'REACT_APP_BACKEND_URL is not set. Attempted to reach backend via:',
+          API_BASE
+        );
+      }
     }
   };
 
