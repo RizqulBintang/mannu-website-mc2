@@ -6,17 +6,24 @@ import ServerInfo from "./components/ServerInfo";
 import GameModes from "./components/GameModes";
 import Gallery from "./components/Gallery";
 import Footer from "./components/Footer";
+import { getApiBase } from "./lib/api";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+const API_BASE = getApiBase();
 
 function App() {
   const testConnection = async () => {
     try {
-      const response = await axios.get(`${API}/`);
+      const response = await axios.get(`${API_BASE}/`);
       console.log("Backend connected:", response.data.message);
     } catch (e) {
       console.error("Backend connection error:", e);
+      console.info("API base attempted:", API_BASE);
+      if (!process.env.REACT_APP_BACKEND_URL) {
+        console.warn(
+          "REACT_APP_BACKEND_URL is not set. Attempted to reach backend via:",
+          API_BASE
+        );
+      }
     }
   };
 
